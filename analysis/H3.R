@@ -8,6 +8,7 @@ library(tidyverse)
 library(rstan)
 
 
+
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 df = readRDS("./data/tweets_merge3dwscore.rds")
@@ -21,13 +22,10 @@ groups = c("party","bloc")
 for(ideo_metric in ideo_metrics){
   for (group in groups) {
 
-
 if (ideo_metric == "coord1D") {df = df[!is.na(df$coord1D_author),]}
 
 df$sentiment = df[,sent_metric]
 df$ideo_metric = as.numeric(df[,paste0(ideo_metric,"_author")])
-
-
 
 X <- as.matrix(
   cbind(
