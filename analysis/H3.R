@@ -19,8 +19,11 @@ sent_metric = "sentiment_openai_sw"
 ideo_metrics = c("score_GPTparty", "score_GPTpol", "CHES", "coord1D")
 groups = c("party","bloc")
 
-for(ideo_metric in ideo_metrics){
-  for (group in groups) {
+#for(ideo_metric in ideo_metrics){
+#  for (group in groups) {
+ideo_metric = 'score_GPTpol'
+group = 'party'
+
 
 if (ideo_metric == "coord1D") {df = df[!is.na(df$coord1D_author),]}
 
@@ -64,5 +67,5 @@ print(stan_fit, probs = c(0.025, 0.5, 0.975))
 
 
 
-  }
-}
+# }
+#}
